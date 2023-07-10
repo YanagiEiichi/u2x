@@ -1,6 +1,7 @@
 import { IfType } from './utils';
 
 export * from './u2o';
+export * from './u2a';
 
 /**
  * Convert unknown to string.
