@@ -1,4 +1,4 @@
-import { IfType } from './utils';
+import { U2x } from './utils';
 
 type DirtyObject = Record<PropertyKey, unknown>;
 
@@ -10,6 +10,6 @@ type DirtyObject = Record<PropertyKey, unknown>;
  * The `Object.create(null) instanceof Object` is false, so the Object.create(null) is not an "object"?
  * :joy:, JavaScript is the best programing language in the world.
  */
-export function u2o<T>(u: T): IfType<object, T> & DirtyObject {
+export function u2o<T>(u: T): U2x<object, T> & DirtyObject {
   return Object(u);
 }
