@@ -1,6 +1,6 @@
 import { IfAnyOrUnknown } from './utils';
 
-type ArrayItem<T> = T extends (infer U)[] ? U : unknown;
+type ArrayItem<T> = T extends readonly (infer U)[] ? U : unknown;
 
 /**
  * Converts unknown to an array.
