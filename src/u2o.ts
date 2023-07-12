@@ -1,8 +1,6 @@
-import { IfAnyOrUnknown } from './utils';
+import { IfAnyOrUnknown, DirtyObject } from './utils';
 
-export type DirtyObject = Record<PropertyKey, unknown>;
-
-type ToObject<U> = U extends object
+export type ToObject<U> = U extends object
   ? U
   : U extends string
   ? String
@@ -10,11 +8,9 @@ type ToObject<U> = U extends object
   ? Number
   : U extends boolean
   ? Boolean
-  : U extends bigint
-  ? BigInt
   : unknown;
 
-type U2o<U> = IfAnyOrUnknown<U, unknown, ToObject<U>> & DirtyObject;
+export type U2o<U> = IfAnyOrUnknown<U, unknown, ToObject<U>> & DirtyObject;
 
 /**
  * Convert unknown to object.

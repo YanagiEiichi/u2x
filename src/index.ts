@@ -1,3 +1,5 @@
+export type * from './utils';
+
 export * from './u2o';
 export * from './u2a';
 

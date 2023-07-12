@@ -1,4 +1,5 @@
-import { DirtyObject, u2o } from '..';
+import { u2o } from '..';
+import { DirtyObject } from '../utils';
 import { AssertTrue, IsEquals } from './libs';
 
 test('Basic u2o', () => {

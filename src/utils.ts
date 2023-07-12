@@ -27,3 +27,5 @@ type TypeMap = {
 export function u2x<T extends keyof TypeMap, U, R = undefined>(t: T, u: U, converter?: (u: U) => R) {
   return (typeof u === t ? u : converter?.(u)) as U2x<TypeMap[T], U, R>;
 }
+
+export type DirtyObject = Record<PropertyKey, unknown>;

@@ -1,8 +1,8 @@
 import { IfAnyOrUnknown } from './utils';
 
-type ArrayItem<T> = T extends readonly (infer U)[] ? U : unknown;
+export type ArrayItem<T> = T extends readonly (infer U)[] ? U : unknown;
 
-type U2a<U, R> =
+export type U2a<U, R> =
   // Check `F` is `never` or not.
   [R] extends [never]
     ? // Yes `F` is a `never`, no callback function provided.
