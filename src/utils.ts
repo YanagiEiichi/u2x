@@ -1,4 +1,4 @@
-export type IfAnyOrUnknown<T, Y, N> = unknown extends T ? Y : N;
+export type IfAnyOrUnknown<T, Y, N = T> = unknown extends T ? Y : N;
 
 /**
  * For each type of a union `U`, if it is extended from `E`, it is kept, otherwise it is converted to `R`,
