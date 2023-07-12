@@ -10,3 +10,4 @@ docs
 !.husky
 !.prettierignore
 !.prettierrc
+!.github
