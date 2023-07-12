@@ -1,6 +1,20 @@
-import { U2x } from './utils';
+import { IfAnyOrUnknown } from './utils';
 
-type DirtyObject = Record<PropertyKey, unknown>;
+export type DirtyObject = Record<PropertyKey, unknown>;
+
+type ToObject<U> = U extends object
+  ? U
+  : U extends string
+  ? String
+  : U extends number
+  ? Number
+  : U extends boolean
+  ? Boolean
+  : U extends bigint
+  ? BigInt
+  : unknown;
+
+type U2o<U> = IfAnyOrUnknown<U, unknown, ToObject<U>> & DirtyObject;
 
 /**
  * Convert unknown to object.
@@ -10,6 +24,6 @@ type DirtyObject = Record<PropertyKey, unknown>;
  * The `Object.create(null) instanceof Object` is false, so the Object.create(null) is not an "object"?
  * :joy:, JavaScript is the best programing language in the world.
  */
-export function u2o<T>(u: T): U2x<object, T> & DirtyObject {
+export function u2o<U>(u: U): U2o<U> {
   return Object(u);
 }
