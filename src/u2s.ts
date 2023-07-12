@@ -1,15 +1,14 @@
-import { U2x } from './utils';
+import { u2x } from './utils';
 
 /**
- * Converts unknown to a string.
+ * Do not declare this function with overloading.
+ * Because, this function is usually used as a callback,
+ * overloaded functions cannot merge all declared types when used as a callback.
  */
-export function u2s<T>(u: T): U2x<string, T, undefined>;
 
 /**
- * Converts unknown to a string.
+ * Converts `u` to a string, and if `u` is not a string, calls the conversion function or returns an undefined.
  */
-export function u2s<T, R = undefined>(u: T, fallback: (u: T) => R): U2x<string, T, R>;
-
-export function u2s<T, R = undefined>(u: T, converter?: (u: T) => R): U2x<string, T, R> {
-  return (typeof u === 'string' ? u : converter?.(u)) as U2x<string, T, R>;
+export function u2s<U, R = undefined>(u: U, converter?: (u: U) => R) {
+  return u2x('string', u, converter);
 }

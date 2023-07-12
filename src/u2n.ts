@@ -1,15 +1,14 @@
-import { U2x } from './utils';
+import { u2x } from './utils';
 
 /**
- * Converts unknown to a number.
+ * Do not declare this function with overloading.
+ * Because, this function is usually used as a callback,
+ * overloaded functions cannot merge all declared types when used as a callback.
  */
-export function u2n<T>(u: T): U2x<number, T, undefined>;
 
 /**
- * Converts unknown to a number.
+ * Converts `u` to a number, and if `u` is not a number, calls the conversion function or returns an undefined.
  */
-export function u2n<T, R = undefined>(u: T, converter: (u: T) => R): U2x<number, T, R>;
-
-export function u2n<T, R = undefined>(u: T, converter?: (u: T) => R): U2x<number, T, R> {
-  return (typeof u === 'number' ? u : converter?.(u)) as U2x<number, T, R>;
+export function u2n<U, R = undefined>(u: U, converter?: (u: U) => R) {
+  return u2x('number', u, converter);
 }

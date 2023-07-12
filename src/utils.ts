@@ -14,3 +14,16 @@ export type IfAnyOrUnknown<T, Y, N> = unknown extends T ? Y : N;
  * NOTE: If `U` is `any` or `unknown`, return the `P | R` directly.
  */
 export type U2x<E, U, R = unknown> = IfAnyOrUnknown<U, E | R, U extends E ? U : R>;
+
+type TypeMap = {
+  string: string;
+  number: number;
+  boolean: boolean;
+};
+
+/**
+ * Converts `u` to a the `t` type, calls the conversion function or returns an undefined.
+ */
+export function u2x<T extends keyof TypeMap, U, R = undefined>(t: T, u: U, converter?: (u: U) => R) {
+  return (typeof u === t ? u : converter?.(u)) as U2x<TypeMap[T], U, R>;
+}
