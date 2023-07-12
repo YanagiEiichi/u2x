@@ -42,3 +42,11 @@ test('Maps with u2a', () => {
   expect(r1).toMatchObject(data);
   true as AssertTrue<IsEquals<(typeof data)[number][], typeof r1>>;
 });
+
+test('Disable map method', () => {
+  const data = [1, 2, 3];
+  Object.defineProperty(data, 'map', { value: null });
+  const r1 = u2a(data, u2n);
+  expect(r1).toMatchObject(data);
+  true as AssertTrue<IsEquals<number[], typeof r1>>;
+});
