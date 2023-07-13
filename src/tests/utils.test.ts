@@ -20,8 +20,8 @@ test('Filter number types, and convert other types to undefined', () => {
 });
 
 test('Filter string types, and convert other types to undefined', () => {
-  const r = u2x('string', 1 as 1 | 'a' | true | 2 | 'b' | false | null | { a: 1 });
-  expect(r).toBe(1);
+  const r = u2x('string', 'a' as 1 | 'a' | true | 2 | 'b' | false | null | { a: 1 });
+  expect(r).toBe('a');
   true as AssertTrue<IsEquals<'a' | 'b' | undefined, typeof r>>;
 });
 
@@ -41,14 +41,14 @@ test('A `unknown` type convert to `string`', () => {
 
 test('A `unknown` type convert to `number`', () => {
   const r1 = u2x('number', 'a' as unknown);
-  expect(r1).toBe('a');
+  expect(r1).toBe(undefined);
   true as AssertTrue<IsEquals<number | undefined, typeof r1>>;
 
   const r2 = u2x('number', 1 as unknown);
-  expect(r2).toBe(undefined);
+  expect(r2).toBe(1);
   true as AssertTrue<IsEquals<number | undefined, typeof r2>>;
 
-  const r3 = u2x('number', 1 as unknown, () => null);
+  const r3 = u2x('number', 'a' as unknown, () => null);
   expect(r3).toBe(null);
   true as AssertTrue<IsEquals<number | null, typeof r3>>;
 });
