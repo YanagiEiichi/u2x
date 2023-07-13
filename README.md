@@ -1,4 +1,4 @@
-# u2x
+# u2x · [![LICENSE](https://img.shields.io/npm/l/u2x)](LICENSE.txt) [![codecov](https://codecov.io/gh/YanagiEiichi/u2x/branch/main/graph/badge.svg?token=8Y5SCRGG7V)](https://codecov.io/gh/YanagiEiichi/u2x)
 
 A suite of utilities for converting unknown data to desired type.
 
