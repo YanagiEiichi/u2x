@@ -4,7 +4,7 @@ import { AssertTrue, IsEquals } from './libs';
 test('Basic u2a', () => {
   const r1 = u2a(1);
   expect(r1).toMatchObject([]);
-  true as AssertTrue<IsEquals<unknown[], typeof r1>>;
+  true as AssertTrue<IsEquals<never[], typeof r1>>;
 
   const r2 = u2a([1]);
   expect(r2).toMatchObject([1]);
@@ -49,4 +49,17 @@ test('Disable map method', () => {
   const r1 = u2a(data, u2n);
   expect(r1).toMatchObject(data);
   true as AssertTrue<IsEquals<number[], typeof r1>>;
+});
+
+test('Array or not Array', () => {
+  let data: number[] | undefined;
+  u2a(data, (v) => {
+    true as AssertTrue<IsEquals<number, typeof v>>;
+  });
+});
+
+test('Never an array', () => {
+  u2a(1, (v) => {
+    true as AssertTrue<IsEquals<never, typeof v>>;
+  });
 });
