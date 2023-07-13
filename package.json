@@ -1,6 +1,6 @@
 {
   "name": "u2x",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A suite of utilities for converting unknown data to desired type.",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
