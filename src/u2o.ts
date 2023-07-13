@@ -1,5 +1,14 @@
 import { IfAnyOrUnknown, DirtyObject } from './utils';
 
+/**
+ * Convert any type to object by folloing steps:
+ *
+ * - If `U` is a `string`, returns a `String` object.
+ * - If `U` is a `number`, returns a `Number` object.
+ * - If `U` is a `boolean`, returns a `Boolean` object.
+ * - If `U` is an `object`, * returns `U` itself.
+ * - Otherwise returns an `unknown`.
+ */
 export type ToObject<U> = U extends object
   ? U
   : U extends string
@@ -10,8 +19,6 @@ export type ToObject<U> = U extends object
   ? Boolean
   : unknown;
 
-export type U2o<U> = IfAnyOrUnknown<U, unknown, ToObject<U>> & DirtyObject;
-
 /**
  * Convert unknown to object.
  *
@@ -20,6 +27,6 @@ export type U2o<U> = IfAnyOrUnknown<U, unknown, ToObject<U>> & DirtyObject;
  * The `Object.create(null) instanceof Object` is false, so the Object.create(null) is not an "object"?
  * :joy:, JavaScript is the best programing language in the world.
  */
-export function u2o<U>(u: U): U2o<U> {
-  return Object(u);
+export function u2o<U>(u: U) {
+  return Object(u) as IfAnyOrUnknown<U, unknown, ToObject<U>> & DirtyObject;
 }
