@@ -7,12 +7,12 @@ import { Converter, u2x } from './utils';
  */
 
 /**
- * Convert `what` to a string, you can provide a custom conversion function or a default value.
+ * Convert `what` to a string, you can provide a custom conversion function.
  * By default, if `what` is not a string, a `undefined` will be returned.
  *
  * @param what Input value.
- * @param defaultValueOrConverter A default value or a converter function.
+ * @param converter A converter function.
  */
-export function u2s<U, R = undefined>(what: U, defaultValueOrConverter?: R | Converter<U, R>) {
-  return u2x('string', what, defaultValueOrConverter);
+export function u2s<U, R = undefined>(what: U, converter?: Converter<U, R>) {
+  return u2x('string', what, converter);
 }

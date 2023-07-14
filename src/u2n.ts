@@ -7,12 +7,12 @@ import { Converter, u2x } from './utils';
  */
 
 /**
- * Convert `what` to a number, you can provide a custom conversion function or a default value.
+ * Convert `what` to a number, you can provide a custom conversion function.
  * By default, if `what` is not a number, a `undefined` will be returned.
  *
  * @param what Input value.
- * @param defaultValueOrConverter A default value or a converter function.
+ * @param converter A converter function.
  */
-export function u2n<U, R = undefined>(what: U, defaultValueOrConverter?: R | Converter<U, R>) {
-  return u2x('number', what, defaultValueOrConverter);
+export function u2n<U, R = undefined>(what: U, converter?: Converter<U, R>) {
+  return u2x('number', what, converter);
 }
