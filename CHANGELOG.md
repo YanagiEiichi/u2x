@@ -1,3 +1,8 @@
+## 1.1.0
+
+- Revert defaultValue support
+- Remove ToArray
+
 ## 1.0.1
 
 - Add repository info
