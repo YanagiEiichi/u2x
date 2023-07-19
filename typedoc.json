@@ -1,0 +1,11 @@
+{
+  "$schema": "https://typedoc.org/schema.json",
+  "entryPoints": ["src"],
+  "includeVersion": true,
+  "hideGenerator": true,
+  "navigation": {
+    "fullTree": true,
+    "includeGroups": true
+  },
+  "groupOrder": ["Functions"]
+}
