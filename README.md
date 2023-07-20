@@ -1,4 +1,4 @@
-# u2x · [![LICENSE](https://img.shields.io/npm/l/u2x)](LICENSE.txt) [![codecov](https://codecov.io/gh/YanagiEiichi/u2x/branch/main/graph/badge.svg?token=8Y5SCRGG7V)](https://codecov.io/gh/YanagiEiichi/u2x)
+# u2x · [![LICENSE](https://img.shields.io/npm/l/u2x)](LICENSE.txt) [![npm](https://img.shields.io/npm/v/u2x?color=33cd56&logo=npm)](https://www.npmjs.com/package/u2x) [![codecov](https://codecov.io/gh/YanagiEiichi/u2x/branch/main/graph/badge.svg?token=8Y5SCRGG7V)](https://codecov.io/gh/YanagiEiichi/u2x)
 
 A suite of utilities for converting unknown data to desired type.
 
