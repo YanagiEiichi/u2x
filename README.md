@@ -16,19 +16,26 @@ npm install u2x --save
 
 ## Background
 
-When you receive data from remote.
+A design principle for reliability of system is to **NEVER TRUST EXTERNAL DATA**,
+any data obtained from external sources are untrusted.
+
+For the frontend, external data is most likely to come from the backend.
+
+For example,
 
 ```ts
 const result = await request('...');
 ```
 
-You cannot trust that type of data. If you access its property directly, such as:
+When you receive data from remote, you cannot trust that type of data.
+
+If you access its property directly, like this:
 
 ```ts
-console.log(result.aaa); // May be thrown.
+console.log(result.aaa);
 ```
 
-That may be thrown, if the result is null or undefined.
+an exception will be thrown if the `result` is `null` or `undefined`.
 
 Therefore, you can wrap `u2o` with this result, such as
 
@@ -55,12 +62,12 @@ The `u2o` function is also implemented using `Object`, you can see the code [src
 
 But, in TypeScript, `Object` always returns an `any`, it is a bad practis.
 
-For example
+For example:
 
 ```ts
 const safeResult = Object(result);
 
-console.log(safeResult.aaa.bbb); // May be throw
+console.log(safeResult.aaa.bbb); // An exception will be thrown if `aaa` is `null` or `undefined`.
 ```
 
 On an `any`, all properties are `any` (The contagiousness of `any`),
